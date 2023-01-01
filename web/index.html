@@ -29,7 +29,9 @@
 </head>
 
 <body onload="getAllProducts()">
-    <button id="install">Install pwa</button>
+    
+    <!-- <button id="install">Install pwa</button> -->
+    
     <h1> API integration: </h1>
 
     <form onsubmit="addProduct(); return false">
@@ -67,22 +69,21 @@
         }
 
 
-        let deferredPrompt;
+        // let deferredPrompt;
+        // window.addEventListener('beforeinstallprompt', function (e) {
 
-        window.addEventListener('beforeinstallprompt', function (e) {
+        //     // Prevent the mini-infobar from appearing on mobile
+        //     e.preventDefault();
 
-            // Prevent the mini-infobar from appearing on mobile
-            e.preventDefault();
+        //     // Stash the event so it can be triggered later.
+        //     deferredPrompt = e;
+        // });
+        // var buttonInstall = document.getElementById('install');
 
-            // Stash the event so it can be triggered later.
-            deferredPrompt = e;
-        });
-        var buttonInstall = document.getElementById('install');
-
-        buttonInstall.addEventListener('click', function (e) {
-            // Show the install prompt
-            deferredPrompt.prompt();
-        });
+        // buttonInstall.addEventListener('click', function (e) {
+        //     // Show the install prompt
+        //     deferredPrompt.prompt();
+        // });
 
 
 
