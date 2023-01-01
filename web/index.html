@@ -29,6 +29,7 @@
 </head>
 
 <body onload="getAllProducts()">
+    <button id="install">Install pwa</button>
     <h1> API integration: </h1>
 
     <form onsubmit="addProduct(); return false">
@@ -64,6 +65,27 @@
                 console.error(`Service worker registration failed: ${error}`);
             });
         }
+
+
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', function (e) {
+
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+
+            // Stash the event so it can be triggered later.
+            deferredPrompt = e;
+        });
+        var buttonInstall = document.getElementById('install');
+
+        buttonInstall.addEventListener('click', function (e) {
+            // Show the install prompt
+            deferredPrompt.prompt();
+        });
+
+
+
     </script>
 </body>
 

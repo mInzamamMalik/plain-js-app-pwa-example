@@ -46,7 +46,16 @@ let addProduct = () => {
 
 }
 let getAllProducts = () => {
-    axios.get(`${baseUrl}/products`)
+
+    console.log("get all product ======>");
+    axios.get(`${baseUrl}/products`, {
+        // query URL without using browser cache
+        headers: {
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache',
+            'Expires': '0',
+        },
+    })
         .then(function (response) {
             // handle success
             console.log("response is success");
